@@ -1,10 +1,14 @@
 # TDX MCP Server
 
-A Model Context Protocol (MCP) server that enables AI assistants to interact with TeamDynamix (TDX) ticketing and service management systems.
+A Model Context Protocol (MCP) server that enables AI assistants to interact with
+TeamDynamix (TDX) ticketing and service management systems.
 
 ## Overview
 
-This MCP server provides a bridge between AI assistants (like Claude) and TeamDynamix, allowing natural language interactions with your organization's ticketing system. It exposes TDX functionality through standardized MCP tools that AI assistants can invoke to search tickets, retrieve details, view activity feeds, and more.
+This MCP server provides a bridge between AI assistants (like Claude) and TeamDynamix,
+allowing natural language interactions with your organization's ticketing system.
+It exposes TDX functionality through standardized MCP tools that AI assistants can invoke
+to search tickets, retrieve details, view activity feeds, and more.
 
 ## Features
 
@@ -26,22 +30,26 @@ This MCP server provides a bridge between AI assistants (like Claude) and TeamDy
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd tdx-mcp
 ```
 
-2. Install dependencies:
+1. Install dependencies:
+
 ```bash
 npm install
 ```
 
-3. Build the project:
+1. Build the project:
+
 ```bash
 npm run build
 ```
 
-4. Configure environment variables:
+1. Configure environment variables:
+
 ```bash
 cp .env.example .env
 # Edit .env with your TDX credentials
@@ -67,6 +75,7 @@ TDX_AUTH_METHOD=login
 ### Authentication Methods
 
 #### Standard Login (Username/Password)
+
 ```bash
 TDX_AUTH_METHOD=login
 TDX_USERNAME=your.username
@@ -74,6 +83,7 @@ TDX_PASSWORD=your.password
 ```
 
 #### Admin Login (BEID/Web Services Key)
+
 ```bash
 TDX_AUTH_METHOD=loginadmin
 TDX_BEID=your-beid
@@ -128,9 +138,11 @@ The server will start and communicate via stdio, waiting for MCP client connecti
 ## Available Tools
 
 ### `search_tickets`
+
 Search for tickets with optional filters.
 
 **Parameters**:
+
 - `searchText` (optional): Free-text search across ticket fields
 - `statusIDs` (optional): Array of status IDs to filter by
 - `priorityIDs` (optional): Array of priority IDs to filter by
@@ -147,35 +159,42 @@ Search for tickets with optional filters.
 > "Show me all high priority tickets assigned to me created in the last week"
 
 ### `get_ticket`
+
 Retrieve complete details for a specific ticket.
 
 **Parameters**:
+
 - `ticketId` (required): The ticket ID to retrieve
 
 **Example**:
 > "Get full details for ticket 12345"
 
 ### `get_ticket_feed`
+
 View activity feed (comments, updates, status changes) for a ticket.
 
 **Parameters**:
+
 - `ticketId` (required): The ticket ID to get feed for
 
 **Example**:
 > "Show me the activity history for ticket 12345"
 
 ### `get_ticket_forms`
+
 List all active ticket forms for your application.
 
-**No parameters required**
+No parameters required.
 
 **Example**:
 > "What ticket forms are available?"
 
 ### `get_ticket_resources`
+
 Search for eligible ticket assignment resources (people and groups).
 
 **Parameters**:
+
 - `searchText` (optional): Search text to filter resources (max 5 results)
 
 **Example**:
@@ -196,7 +215,7 @@ Once configured with Claude Desktop, you can have natural language conversations
 
 ## Project Structure
 
-```
+```text
 tdx-mcp/
 ├── src/
 │   ├── index.ts              # Server entry point
@@ -277,6 +296,7 @@ registerMyTools(server, tdxClient);
 **Error**: `TDX authentication failed (401)`
 
 **Solutions**:
+
 - Verify credentials in `.env` are correct
 - Check `TDX_AUTH_METHOD` matches your credential type
 - Ensure user has API access permissions in TDX
@@ -287,6 +307,7 @@ registerMyTools(server, tdxClient);
 **Error**: `TDX_BASE_URL environment variable is required`
 
 **Solutions**:
+
 - Ensure `.env` file exists in project root
 - Check all required variables are set
 - Verify `.env` file format (no spaces around `=`)
@@ -296,6 +317,7 @@ registerMyTools(server, tdxClient);
 **Error**: `TDX API error (timeout)`
 
 **Solutions**:
+
 - Verify network connectivity to TDX instance
 - Check firewall settings allow HTTPS to TDX
 - Confirm TDX instance URL is correct and accessible
@@ -305,6 +327,7 @@ registerMyTools(server, tdxClient);
 **Error**: `TDX API error (403)`
 
 **Solutions**:
+
 - User may lack permissions for requested resource
 - Check TDX role and security assignments
 - Verify Application ID matches a ticketing app you have access to
@@ -314,6 +337,7 @@ registerMyTools(server, tdxClient);
 **Issue**: Claude doesn't see TDX tools
 
 **Solutions**:
+
 - Restart Claude Desktop completely
 - Check `claude_desktop_config.json` syntax (valid JSON)
 - Verify absolute path to `dist/index.js` is correct
@@ -331,6 +355,7 @@ registerMyTools(server, tdxClient);
 ## Limitations
 
 Current version is read-only:
+
 - Cannot create or update tickets
 - Cannot post comments or feed entries
 - Cannot upload attachments
@@ -339,6 +364,7 @@ Current version is read-only:
 ## Support
 
 For issues and questions:
+
 1. Check this README and troubleshooting section
 2. Review `design.md` for architecture details
 3. Review `requirements.md` for feature specifications
@@ -351,6 +377,7 @@ For issues and questions:
 ## Acknowledgments
 
 Built with:
+
 - [Model Context Protocol SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 - [TeamDynamix Web API](https://solutions.teamdynamix.com/TDWebApi)
 - [Zod](https://github.com/colinhacks/zod) for schema validation
