@@ -92,7 +92,7 @@ TDX_WEB_SERVICES_KEY=your-web-services-key
 
 Add to your Claude Desktop MCP configuration file:
 
-**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`  
+**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
@@ -185,14 +185,14 @@ Search for eligible ticket assignment resources (people and groups).
 
 Once configured with Claude Desktop, you can have natural language conversations:
 
-**User**: "Show me all open tickets assigned to the networking team"  
-**Claude**: *Uses search_tickets with appropriate filters*
+**User**: "Show me all open tickets assigned to the networking team"
+**Claude**: (uses `search_tickets` with appropriate filters)
 
-**User**: "What's the latest update on ticket 5678?"  
-**Claude**: *Uses get_ticket_feed to show recent activity*
+**User**: "What's the latest update on ticket 5678?"
+**Claude**: (uses `get_ticket_feed` to show recent activity)
 
-**User**: "Get details for that ticket"  
-**Claude**: *Uses get_ticket to retrieve full information*
+**User**: "Get details for that ticket"
+**Claude**: (uses `get_ticket` to retrieve full information)
 
 ## Project Structure
 

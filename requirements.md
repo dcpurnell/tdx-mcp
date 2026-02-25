@@ -2,8 +2,8 @@
 
 ## Project Overview
 
-**Project Name**: TDX MCP Server  
-**Version**: 1.0.0  
+**Project Name**: TDX MCP Server
+**Version**: 1.0.0
 **Purpose**: Enable AI assistants and MCP clients to interact with TeamDynamix ticketing and service management systems through the Model Context Protocol.
 
 ## Stakeholders
