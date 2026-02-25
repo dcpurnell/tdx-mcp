@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:solutions.teamdynamix.com)",
+      "mcp__Desktop_Commander__list_directory",
+      "Bash(ls -la /Users/dpurnell/Developer/mcp-servers/onenote-mcp/*.ts)",
+      "Bash(npm install)",
+      "Bash(npm run build)"
+    ]
+  }
+}
